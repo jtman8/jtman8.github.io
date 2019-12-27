@@ -1,0 +1,288 @@
+body {
+    margin: 0px;
+}
+.background {
+    background-color: #FFEEDD;  
+    background-position: center; 
+    background-size: cover; 
+    height: 120%;
+}
+h1{
+    text-align: center;
+    font-family: 'Lato';
+}
+/* top left button dropdown menu*/
+.button {
+  background:rgb(204, 170, 255);
+  box-shadow:5px 5px 0 rgba(204,170,255,.5);
+  display:inline-block;
+  font-size:1.5em;
+  color: white;
+  padding:.5em 2em;
+  text-decoration:none;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  box-shadow: 11 7 51 ;
+}
+
+.parallelogram{
+  transform: skew(-20deg);
+}
+
+.skew-fix{
+  display:inline-block;
+  transform: skew(20deg);
+}
+.a {
+  transform: rotate(20deg);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  left: 16px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: center;
+  background-color: rgb(204, 170, 255);
+  color: white;
+  width: 128px;
+  height: 255px;
+  margin: auto;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: black;}
+
+a.button4{
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    margin: 0 0.1em 0.1em 0;
+    border: 0.16em solid rgba(255,255,255,0);
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align: center;
+    transition: all 0.2s;
+}
+a.button4:hover{
+     border-color: rgba(255,255,255,1);
+}
+@media all and (max-width:30em){
+ a.button4{
+    display:block;
+    margin:0.2em auto;
+ }
+}
+
+/* this is adds the spinning to the main logo*/
+@keyframes spin {
+  from{
+  transform: rotateY(0deg);
+  moz-transform: rotateY(0deg); //Firefox
+  ms-transform: rotateY(0deg); //Microsoft Browsers
+  }
+  to{
+  transform: rotateY(360deg);
+  moz-transform: rotateY(360deg); //Firefox
+  ms-transform: rotateY(360deg); //Microsoft Browsers
+  }
+ }
+ @-webkit-keyframes spin{
+  from{-webkit-transform: rotateY(0deg);}
+  to{-webkit-transform: rotateY(360deg);}
+ }
+ .imageSpin{
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  -webkit-animation-name: spin;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 5s;
+ }
+ 
+/**this is code for the interactive letters for the page, found by Bernardo called Opening type, https://codepen.io/bernardo/pen/ugApF **/ 
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+*, *:before, *:after{
+  box-sizing:border-box;
+}
+body{
+  font-family: 'Lato', sans-serif;
+}
+div.foo{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 5em;
+  margin: 0.2em;
+  position: relative;
+  color: #CCEEFF;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+/* code for jigsaw pieces*/ 
+
+.jigsaw1, .jigsaw2, .jigsaw3, .jigsaw4 {
+    width: 6em;
+    height: 6em;
+    margin: 50px;
+    position: relative;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    cursor: pointer;
+  }
+  
+  .jigsaw1,
+  .jigsaw1 span {
+   background-color: #0284cf; 
+  }
+  
+  .jigsaw2,
+  .jigsaw2 span {
+   background-color: #00008B; 
+  }
+
+  .jigsaw3,
+  .jigsaw3 span {
+   background-color: #00008B; 
+  }
+
+  .jigsaw4,
+  .jigsaw4 span {
+   background-color: #00008B; 
+  }
+  
+  .text {
+    display: block;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 1.9em 0 0 1.2em;
+    position: relative;
+    background: transparent !important;
+  }
+  
+  .jigsaw1 .t, .jigsaw2 .t, .jigsaw3 .t, .jigsaw4 .t {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: -1.5em;
+    left: 2em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+  }
+  
+  .jigsaw1 .r, .jigsaw2 .r, .jigsaw3 .r, .jigsaw4 .r {
+   width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 2em;
+    left: 5.5em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+  }
+  
+  .jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b { 
+   width: 1.8em;
+    height: 1.8em;
+    position: absolute;
+    top: 4.5em;
+    left: 2.2em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #FFEEDD;
+  }
+  
+  .jigsaw1 .l, .jigsaw2 .l, .jigsaw3 .l, .jigsaw4 .l { 
+   width: 1.8em;
+    height: 1.8em;
+    position: absolute;
+    top: 2.2em;
+    left: -.4em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #FFEEDD;
+  }
