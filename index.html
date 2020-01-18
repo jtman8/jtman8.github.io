@@ -55,18 +55,38 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav">
         <li><a href="spider.html">Clustering: Al-Qaeda vs ISIS Emotion</a></li>
-        <li><a href="isnetwork.html">ISIS Concurrence</a></li>
-        <li><a href="aqnetwork.html">Al-Qaeda Concurrence</a></li>
-        <li><a href="../index.html">Back to Tyler's Website</a></li>
+        <li><a href="isnetwork.html">ISIS Network</a></li>
+        <li><a href="aqnetwork.html">Al-Qaeda Network</a></li>
       </ul>
       <title>Network Graph: Al-Qaeda Concurrence</title>
     </div>
 
   </div>
 </nav>
-<p>
-  <h1>Emotional Analysis of ISIS and Al-Qaeda: </h1>
-  <h2> Exploring Emotional Contexts of Individuals Mentioned</h2>
-  Hi How are you?
-</p>
+<div>
+  <h1> Emotional Analysis of ISIS and Al-Qaeda: </h1>
+  <h3> Data </h3>
+  <p>
+    The data for this project originated from two different sources. The ISIS data came from West Point’s Combating Terrorism Center (CTC), specifically from the Harmony Project collection. The Al-Qaeda documents were originally found in the CIA’s raid of Osama bin Laden’s Abbottabad compound. All documents we have used were translated to English by their respective owners. As a result of this collection procedure, there could be bias introduced merely by the nature of where these documents came from and the documents’ different purposes. However, we found it still be worth trying to develop a procedure for comparing emotional language used towards specific individuals. 
+  </p>
+  <h3> Methodology </h3>
+  <p>
+    This project attempts to categorize the emotional representations of people by ISIS and Al-Qaeda and to compare these representations. To do this, my fellow intern and I applied the EmoLex created from the National Research Council (NRC) of Canada to approximate the emotional resonance of paragraphs in which people were mentioned. We used the Natural Language Processing package SpaCy to identify people in the documents. This package has a Named Entity Recognizer, which allowed us to pick out exactly where people were mentioned in the documents. While not perfect, it serves as a good starting point for identifying people quickly and without needing to manually search for them. Once we found all mentions of people, we attributed all their associated paragraphs to each person. While we could have elected to summarize at the sentence level, we thought that using the emotions of the paragraphs would give a better sense of the overall emotional context of each person. By averaging these emotional contexts of the paragraphs an individual was mentioned in, you then get a sense of how that person was portrayed overall by a specific terrorist group.
+    
+    The Clusters tab shows the results of agglomerative clustering on these individuals, where each dimension was one of the 8 emotions. If you are unfamiliar with clustering, it is easiest to view these as types of “emotional profiles.” If a person is associated with a certain cluster (which can be easily seen with the color), you can get a general sense for which “profile” they best fit into. The spider graphs illustrate the emotional profiles and allow comparison of the two groups. As can be seen in the charts, ISIS and Al-Qaeda had slightly different representations, with ISIS having pretty similar profiles as Al-Qaeda except that it has two additional types of emotional representation.
+
+    The Network Graphs feature each person mentioned in the indicated group’s documents. For example, on the ISIS Cooccurrence graph, we are looking at individuals mentioned in the ISIS documents. Two people are connected if they were mentioned in the same paragraph among all the ISIS documents. Each person is colored by the cluster in which they were found to best reside based on the ISIS documents. This allows you to see who are directly related to each other (based on the Distributional Hypothesis, as they are mentioned in the same paragraph) and to see how that relation might look like (since you can compare the colors of the two entities and identify similarities between their respective clusters). Additionally, upon highlighting a given person, their immediate connections will be highlighted. You will also see a spider chart appear and can then compare how they are emotionally represented in both the current group’s documents as well as the other terrorist group’s. 
+  </p>
+  <h3> Potential Improvements </h3>
+  <p>
+    There are a few areas in which our initial attempt could be improved:
+1. Data could be more standardized
+    1. The data from each group was a little sporadic and should be filtered so that they either referred to the same event or topic or at least were the same types of documents (ex. Letter, command, instructions, etc.)
+2. Change the level of depth of textual analysis from Paragraphs to Sentence level:
+    1. Paragraphs seemed to not quite be good enough to separate emotional representations of people:
+        1. Ex. Osama Bin Laden is in the same cluster as George Bush in ISIS documents. Logically, these two people should not have emotional representations that are similar and it suggests we should change the methodology
+3. Develop a classifier to supplement the rudimentary lexicon approach
+    1. The lexicon-based approach can only be so effective because it is limited to the list of words that are in the list to begin with. This can lead to bias, as words that should clearly be on the list are absent either because they might be used more rarely or they might be a derivative of words that are on the list as well. This is why a classifier could help to improve this approach
+  </p>
+</div>
 </body>
